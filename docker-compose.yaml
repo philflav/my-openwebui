@@ -59,7 +59,7 @@ services:
 #   open-webui: vol1
  
   # ollama: {}
-networks:
+# networks:
   # dockge_default:
   #     external: true
   # ollama_default:
