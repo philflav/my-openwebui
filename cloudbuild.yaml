@@ -1,6 +1,7 @@
+#Version 1.2
 steps:
   # running docker-compose
   - name: 'docker/compose:1.26.2'
     args: ['up', '-d']
-    options:
+
 logging: CLOUD_LOGGING_ONLY # or NONE
