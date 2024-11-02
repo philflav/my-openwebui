@@ -3,5 +3,8 @@ steps:
   # running docker-compose
   - name: 'docker/compose:1.26.2'
     args: ['up', '-d']
+    volumes:
+      - name: 'vol1'
+        path: '/persistent_volume'
 options:
   logging: CLOUD_LOGGING_ONLY # or NONE

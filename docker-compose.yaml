@@ -56,9 +56,8 @@ services:
   #       max-size: 4m
   #       max-file: '1'
 volumes:
-  open-webui:
-    name: my-open-webui-storage
-    path: /workspace/my-open-webui
+  open-webui: '/persistent_volume'
+ 
   # ollama: {}
 networks:
   # dockge_default:
