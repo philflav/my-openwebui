@@ -1,4 +1,4 @@
-# version: "3.3"
+# version: "3.3" (linked to google Cloud build)
 services:
   open-webui:
     ports:
