@@ -59,8 +59,8 @@ volumes:
   open-webui: {}
   # ollama: {}
 networks:
-  dockge_default:
-      external: true
+  # dockge_default:
+  #     external: true
   # ollama_default:
   #   # external: true
   # searxng_default:
