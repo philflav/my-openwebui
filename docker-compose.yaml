@@ -1,4 +1,4 @@
-# version: "3.3" (linked to google Cloud build)
+# version: "4.1" (minimal build get things working)
 #
 services:
   open-webui:
@@ -9,61 +9,61 @@ services:
     container_name: my_open-webui
     restart: always
     image: ghcr.io/open-webui/open-webui:latest
-  ollama:
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities:
-                - gpu
-    volumes:
-      - ollama:/app/.ollama
-    ports:
-      - 11434:11434
-    container_name: my_ollama
-    image: ollama/ollama
-    restart: always
-  tika:
-    container_name: my_tika
-    ports:
-      - 9998:9998
-    image: apache/tika:latest-full
-    restart: always
-  searxng:
-    container_name: my_searxng
-    image: docker.io/searxng/searxng:latest
-    restart: unless-stopped
-    networks:
-      - searxng_default
-    ports:
-      - 7777:8080
-    volumes:
-      - ./searxng/img:/usr/local/searxng/searx/static/themes/simple/img:rw
-      - ./searxng:/etc/searxng:rw
-    # environment:
-    #   - SEARXNG_BASE_URL=http://${SEARXNG_HOSTNAME:-localhost}/
-    cap_drop:
-      - ALL
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
-    logging:
-      driver: json-file
-      options:
-        max-size: 4m
-        max-file: '1'
+  # ollama:
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: all
+  #             capabilities:
+  #               - gpu
+  #   volumes:
+  #     - ollama:/app/.ollama
+  #   ports:
+  #     - 11434:11434
+  #   container_name: my_ollama
+  #   image: ollama/ollama
+  #   restart: always
+  # tika:
+  #   container_name: my_tika
+  #   ports:
+  #     - 9998:9998
+  #   image: apache/tika:latest-full
+  #   restart: always
+  # searxng:
+  #   container_name: my_searxng
+  #   image: docker.io/searxng/searxng:latest
+  #   restart: unless-stopped
+  #   networks:
+  #     - searxng_default
+  #   ports:
+  #     - 7777:8080
+  #   volumes:
+  #     - ./searxng/img:/usr/local/searxng/searx/static/themes/simple/img:rw
+  #     - ./searxng:/etc/searxng:rw
+  #   # environment:
+  #   #   - SEARXNG_BASE_URL=http://${SEARXNG_HOSTNAME:-localhost}/
+  #   cap_drop:
+  #     - ALL
+  #   cap_add:
+  #     - CHOWN
+  #     - SETGID
+  #     - SETUID
+  #   logging:
+  #     driver: json-file
+  #     options:
+  #       max-size: 4m
+  #       max-file: '1'
 volumes:
   open-webui: {}
-  ollama: {}
+  # ollama: {}
 networks:
   dockge_default:
-    # external: true
-  ollama_default:
-    # external: true
-  searxng_default:
-    # external: true
-  tika_default:
-    # external: true
+      external: true
+  # ollama_default:
+  #   # external: true
+  # searxng_default:
+  #   # external: true
+  # tika_default:
+  #   # external: true
