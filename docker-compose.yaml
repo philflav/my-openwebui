@@ -56,7 +56,7 @@ services:
   #       max-size: 4m
   #       max-file: '1'
 volumes:
-  open-webui: '/persistent_volume'
+  open-webui: vol1
  
   # ollama: {}
 networks:
