@@ -1,10 +1,12 @@
 #Version 1.2
 steps:
-  # running docker-compose
-  - name: 'docker/compose:1.26.2'
-    args: ['up', '-d']
-    # volumes:
-    #   - name: 'vol1'
-    #     path: '/persistent_volume'
+FROM ghcr.io/open-webui/open-webui:latest
+
+# Assuming your data resides in a directory named "data" on your host machine
+COPY data /app/data  # Copy data directory from host to container
+
+EXPOSE 8080
+
+CMD ["open-webui", "-p", "8080"]  # Assuming the entrypoint is "open-webui"
 options:
   logging: CLOUD_LOGGING_ONLY # or NONE
