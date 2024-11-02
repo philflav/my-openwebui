@@ -1,0 +1,15 @@
+services:
+  tika:
+    ports:
+      - 9998:9998
+    image: apache/tika:latest-full
+    restart: always
+networks:
+  dockge_default:
+    # external: true
+  openwebui_default:
+    # external: true
+  searxng_default:
+    # external: true
+  tika_default:
+    # external: true
