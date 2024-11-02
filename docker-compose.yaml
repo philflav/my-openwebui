@@ -4,8 +4,8 @@ services:
   open-webui:
     ports:
       - 3000:8080
-    volumes:
-      - vol1
+    # volumes:
+    #   - vol1
     container_name: my_open-webui
     restart: always
     image: ghcr.io/open-webui/open-webui:latest
@@ -55,8 +55,8 @@ services:
   #     options:
   #       max-size: 4m
   #       max-file: '1'
-volumes:
-  open-webui: vol1
+# volumes:
+#   open-webui: vol1
  
   # ollama: {}
 networks:
