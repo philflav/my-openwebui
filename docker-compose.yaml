@@ -5,7 +5,7 @@ services:
     ports:
       - 3000:8080
     volumes:
-      - open-webui:/app/backend/data
+      - vol1
     container_name: my_open-webui
     restart: always
     image: ghcr.io/open-webui/open-webui:latest
