@@ -19,7 +19,7 @@ services:
               capabilities:
                 - gpu
     volumes:
-      - ollama:/root/.ollama
+      - ollama:/app/.ollama
     ports:
       - 11434:11434
     container_name: my_ollama
